@@ -2,28 +2,26 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/style.css" />
     <title>Movieflix</title>
 </head>
 
 <body>
     <!-- Your Code Goes Here -->
-    <h1>
-        <% if(foundMovie[1] != null){ %>
-            <h1>
-                <%= foundMovie[0] %>
-            </h1>
-            <p>
-                <%= foundMovie[1] %>
-            </p>
-    </h1>
-    <% } else{ %>
-        <h1>Movie could not be found</h1>
-        <% } %>
-            <a href="http://localhost:3000">Home</a>
 
+    <% if(foundMovie[1] !=null){ %>
+        <h1>
+            <%= foundMovie[0] %>
+        </h1>
+        <p>
+            <%= foundMovie[1] %>
+        </p>
+        <% } else { %>
+            <h1>Movie could not be found</h1>
+            <% } %>
+                <a href="http://localhost:3000">Home</a>
 </body>
 
 </html>

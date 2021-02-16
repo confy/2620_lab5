@@ -18,13 +18,15 @@
         <form>
             <fieldset class="todo-list">
                 <legend class="todo-list__title">My Movie List</legend>
-                <% if (typeof movies !== 'undefined') { %>
-                    <% for (let i = 0; i < movies.length; i++ ) { %>
+                <% if (typeof movies !=='undefined' ) { %>
+                    <% for (let i=0; i < movies.length; i++ ) { %>
                         <label class="todo-list__label">
-            <input type="checkbox" name="" id="" />
-            <i class="check"></i>
-            <span><%= movies[i] %></span>
-          </label>
+                            <input type="checkbox" name="" id="" />
+                            <i class="check"></i>
+                            <span>
+                                <%= movies[i] %>
+                            </span>
+                        </label>
                         <% }} %>
             </fieldset>
         </form>

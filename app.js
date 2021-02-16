@@ -2,7 +2,7 @@
  Authors:
  Your name and student #:Adrian McFarlane A00957549
  Your Partner's Name and student #:Xinyue(Ingrid) Zeng A00937032
- (Make sure you also specify on the Google Doc)
+ (Make sure you also specify on the Notion Doc)
 */
 const fs = require('fs')
 const express = require("express");
@@ -30,7 +30,6 @@ app.get("/myListQueryString", (req, res) => {
 
 app.get("/search/:movieName", (req, res) => {
     let search = req.params.movieName
-    debugger;
     fs.readFile("./movieDescriptions.txt", (err, data) => {
         if (err) {
             console.log("Error reading movie")
@@ -38,15 +37,18 @@ app.get("/search/:movieName", (req, res) => {
             let movieDescriptions = data.toString()
             let movieList = movieDescriptions.split("\n")
             let moviesObj = {}
+
             movieList.forEach((movie) => {
                 currMovie = movie.split(":")
                 moviesObj[currMovie[0]] = currMovie[1]
             })
-            foundMovie = null
+
+            let movieDesc = null
             if (search in moviesObj) {
-                foundMovie = moviesObj[search]
+                movieDesc = moviesObj[search]
             }
-            res.render("pages/searchResult", { foundMovie: [search, foundMovie] })
+
+            res.render("pages/searchResult", { foundMovie: [search, movieDesc] })
         }
     })
 
